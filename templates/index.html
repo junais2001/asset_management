@@ -1,0 +1,85 @@
+{% extends 'layout.html' %} {% block body %}
+
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" />
+
+<script src="{{url_for('static',filename='js/index.js')}}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<div class="container">
+  <div class="content-box">
+    <h3 class="text-center mt-5 mb-4 bold">ACCESORIES DETAILS</h3>
+    <hr />
+    <select name="search_filter" id="search_filter" class="form-control">
+      <option value="">Select Option</option>
+      '; {% for row in employee %}
+      <option value="{{row.AssetType}}">{{row.AssetType}}</option>
+      '; {% endfor %}
+    </select>
+    <input type="hidden" name="hidden_value" id="hidden_value" />
+    <div style="clear: both"></div>
+    <br />
+    <p class="text-right">
+      <a href='{{url_for("add")}}' class="btn btn-success">Add Accesories</a>
+    </p>
+
+    <div class="table-responsive">
+      <table id="employeeTable" class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>ASSET TYPE</th>
+            <th>ASSET MODEL</th>
+            <th>ASSET SERIAL NUMBER</th>
+            <th>SAP ASSET NUMBER</th>
+            <th>ASSET OWNER</th>
+            <th>DEPARTMENT</th>
+            <th>ASSET LOCATION</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- {% for row in datas %}
+          <tr>
+            <td>{{ row.AssetType }}</td>
+            <td>{{ row.AssetModel }}</td>
+            <td>{{ row.AssetSerialNumber }}</td>
+            <td>{{ row.SapAssetNo }}</td>
+            <td>{{ row. AssetOwner }}</td>
+            <td>{{ row.Department }}</td>
+            <td>{{ row.AssetLocation }}</td>
+            <td>
+              <a href='{{url_for("edit",assetserialnumber=row.AssetSerialNumber)}}' class="btn btn-primary">EDIT</a>
+            </td>
+            <td>
+              <a href='{{url_for("delete",assetserialnumber=row.AssetSerialNumber)}}' class="btn btn-danger" onclick='return confirm("Asset Details Will Delete Permanently")'>Delete</a>
+            </td>
+          </tr>
+          {% endfor %} -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script>
+ $(document).ready(function () {
+    load_data();
+    function load_data(query = "") {
+      $.ajax({
+        url: "/fetchrecords",  // Correct AJAX URL
+        method: "POST",
+        data: { query: query },
+        success: function (data) {
+          $("tbody").html(data);
+          $("tbody").append(data.htmlresponse);
+        },
+      });
+    }
+
+    $("#search_filter").change(function () {
+      $("#hidden_value").val($("#search_filter").val());
+      var query = $("#hidden_value").val();
+      load_data(query);
+    });
+});
+</script>
+{% endblock %}

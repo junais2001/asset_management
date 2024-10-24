@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Asset Details</title>
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap">
+
+    <!-- Iconscout CSS -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>UPDATE ASSET DETAILS</header>
+        <form method="post" action="{{url_for('edit', assetserialnumber=datas.AssetSerialNumber)}}" enctype="multipart/form-data">
+            <div class="form first active">
+                <div class="details personal">
+                    <span class="title">Asset Details</span><br><br>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label for="asset_type">ASSET TYPE</label>
+                            <select id="asset_type" name="asset_type" class="form-control" required>
+                                <option value="" disabled selected>Select Asset Type</option>
+                                <option value="Type1" {% if datas.AssetType == 'Keyboard' %} selected {% endif %}>Keyboard</option>
+                                <option value="Type2" {% if datas.AssetType == 'Desktop' %} selected {% endif %}>Desktop</option>
+                                <option value="Type3" {% if datas.AssetType == 'Printer' %} selected {% endif %}>Printer</option>
+                                <!-- Add more options as needed -->
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>ASSET MAKE</label>
+                            <input type="text" id="asset_make" name="asset_make" required class="form-control" value="{{datas.AssetMake}}">
+                        </div>
+                        <div class="input-field">
+                            <label>ASSET MODEL</label>
+                            <input type="text" id="asset_model" name="asset_model" required class="form-control" value="{{datas.AssetModel}}">
+                        </div>
+                        <div class="input-field">
+                            <label>ASSET SERIAL NUMBER</label>
+                            <input type="text" id="asset_number" name="asset_number" required class="form-control" value="{{datas.AssetSerialNumber}}">
+                        </div>
+                        <div class="input-field">
+                            <label>CEAT ASSET TAG</label>
+                            <input type="text" id="ceat_asset_tag" name="ceat_asset_tag" required class="form-control" value="{{datas.CeatAssetTag}}">
+                        </div>
+                        <div class="input-field">
+                            <label>SAP ASSET NUMBER</label>
+                            <input type="text" id="sap_number" name="sap_number" required class="form-control" value="{{datas.SapAssetNumber}}">
+                        </div>
+                        <div class="input-field">
+                            <label>PO NUMBER</label>
+                            <input type="text" id="po_number" name="po_number" required class="form-control" value="{{datas.PoNumber}}">
+                        </div>
+                        <div class="input-field">
+                            <label for="asset_state">ASSET STATE</label>
+                            <select id="asset_state" name="asset_state" class="form-control" required>
+                                <option value="" disabled selected>Select Asset State</option>
+                                <option value="State1" {% if datas.AssetState == 'ACTIVE' %} selected {% endif %}>ACTIVE</option>
+                                <option value="State2" {% if datas.AssetState == 'INACTIVE' %} selected {% endif %}>INACTIVE</option>
+                                <!-- Add more options as needed -->
+                            </select>
+                        </div>
+                    </div><br><br>
+                    <div class="details user">
+                        <span class="title">User Details</span><br><br>
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>EMPLOYEE NAME</label>
+                                <input type="text" id="employee_name" name="employee_name" required class="form-control" value="{{datas.EmployeeName}}">
+                            </div>
+                            <div class="input-field">
+                                <label for="department">DEPARTMENT</label>
+                                <select id="department" name="department" class="form-control" required>
+                                    <option value="" disabled selected>Select Department</option>
+                                    <option value="Department1" {% if datas.Department == 'IT' %} selected {% endif %}>IT</option>
+                                    <option value="Department2" {% if datas.Department == 'PRODUCTION' %} selected {% endif %}>PRODUCTION</option>
+                                    <option value="Department3" {% if datas.Department == 'QUALITY' %} selected {% endif %}>QUALITY</option>
+                                    <option value="Department4" {% if datas.Department == 'FINANCE' %} selected {% endif %}>FINANCE</option>
+                                    <!-- Add more options as needed -->
+                                </select>
+                            </div>
+                            <div class="input-field">
+                                <label>EMPLOYEE GRADE</label>
+                                <input type="text" id="employee_grade" name="employee_grade" required class="form-control" value="{{datas.EmployeeGrade}}">
+                            </div>
+                            <div class="input-field">
+                                <label>EMPLOYEE CODE</label>
+                                <input type="text" id="employee_code" name="employee_code" required class="form-control" value="{{datas.EmployeeCode}}">
+                            </div>
+                            <div class="input-field">
+                                <label>EMAIL ID</label>
+                                <input type="email" id="email_id" name="email_id" required class="form-control" value="{{datas.EmailId}}">
+                            </div>
+                            <div class="input-field">
+                                <label>CONTACT NUMBER</label>
+                                <input type="text" id="contact_number" name="contact_number" required class="form-control" value="{{datas.ContactNumber}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details address">
+                        <span class="title">Allocation Details</span><br><br>
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>ALLOCATION DATE</label>
+                                <input type="date" id="allocation_date" name="allocation_date" required class="form-control" value="{{datas.AllocationDate}}">
+                            </div>
+                            <div class="input-field">
+                                <label for="allocation_type">ALLOCATION TYPE</label>
+                                <select id="allocation_type" name="allocation_type" class="form-control" required>
+                                    <option value="" disabled selected>Select Allocation Type</option>
+                                    <option value="PERMANENT" {% if datas.AllocationType == 'PERMANENT' %} selected {% endif %}>PERMANENT</option>
+                                    <option value="TEMPORARY" {% if datas.AllocationType == 'TEMPORARY' %} selected {% endif %}>TEMPORARY</option>
+                                    <!-- Add more options as needed -->
+                                </select>
+                            </div>
+                            <div class="input-field">
+                                <label>VALID TILL</label>
+                                <input type="date" id="valid_till" name="valid_till" required class="form-control" value="{{datas.ValidTill}}">
+                            </div>
+                            <div class="input-field">
+                                <label>ALLOCATED LOCATION</label>
+                                <input type="text" id="allocated_location" name="allocated_location" required class="form-control" value="{{datas.AllocatedLocation}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details verification">
+                        <span class="title">Team Verification</span><br><br>
+                        <div class="fields">
+                            <div class="verification-section">
+                                <span class="subtitle">IT Team</span>
+                                <div class="input-field-inline">
+                                    <div class="input-field">
+                                        <label>USER NAME</label>
+                                        <input type="text" id="it_team_username" name="it_team_username" required class="form-control">
+                                    </div>
+                                    <div class="input-field">
+                                        <label>SIGNATURE</label>
+                                        <input type="text" id="it_team_signature" name="it_team_signature" required class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="verification-section">
+                                <span class="subtitle">Network Team</span>
+                                <div class="input-field-inline">
+                                    <div class="input-field">
+                                        <label>USER NAME</label>
+                                        <input type="text" id="network_team_username" name="network_team_username" required class="form-control">
+                                    </div>
+                                    <div class="input-field">
+                                        <label>SIGNATURE</label>
+                                        <input type="text" id="network_team_signature" name="network_team_signature" required class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button type="submit" class="submit">
+                            <span class="btnText">Update</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/edit.js') }}"></script>
+</body>
+</html>

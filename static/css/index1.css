@@ -1,0 +1,58 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: linear-gradient(white, white), url('https://longmarch.ae/wp-content/uploads/2019/08/expertise-3.jpg');
+    background-size: cover;
+    animation: slideBackground 20s infinite;
+  }
+  /* @keyframes slideBackground {
+    0% {
+      background-image: url('https://longmarch.ae/wp-content/uploads/2019/08/expertise-3.jpg');
+    }
+    50% {
+      background-image: url('https://rpgcom.rpggroup.com/2020/july/images/cover-story-kma.jpg');
+    }
+    100% {
+      background-image: url('https://img.seithipunal.com/media/hthy-ep3je.jpg');
+    }
+    /* 75% {
+      background-image: url('https://media.licdn.com/dms/image/C5122AQHrRcbF0bzulQ/feedshare-shrink_800/0/1581517988662?e=2147483647&v=beta&t=2Q5-Gh8-JCzYOtXb1FylrZZZCeUfR68A-D5luyXaBuY');
+    }
+    100% {
+      background-image: url('https://media.glassdoor.com/l/c8/05/54/2c/health-and-wellness-week.jpg');
+    } 
+  } */
+  hr {
+    border-width: 2px; /* Increase border width */
+    border-color: white; /* Change border color */
+    font-weight: bold; /* Make the <hr> bold */
+  }
+  h3 {
+    color: white; /* Change heading color to white */
+    font-weight: bold; /* Make the heading bold */
+    text-shadow: 2px 2px black; /* Add black shadow to text */
+  }
+  table {
+    background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5));
+  }
+  table td {
+    font-weight: bold; /* Make table data bold */
+  }
+  .btn-group {
+    margin-top: 20px; /* Add margin to the top */
+    text-align: right; /* Align to the right */
+    margin-right: 10px; /* Add small distance between buttons */
+  }
+  .search-input {
+    background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)); /* Gradient background */
+    border-radius: 5px; /* Add border radius */
+   
+  }
+  .search-input::placeholder {
+    color: white; /* Change placeholder text color to white */
+  }
+  .search-input:focus, .search-input:active {
+  color: black; /* Set initial color on focus or touch */
+  }

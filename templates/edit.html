@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/edit.css')}}">
+    <title>Register Employee Details</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title text-center">UPDATE ASSET DETAILS</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{{url_for('edit', assetserialnumber=datas.AssetSerialNumber)}}" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="asset_type">ASSET TYPE</label>
+                            <input type="text" id="asset_type" name="asset_type" required class="form-control" value="{{datas.AssetType}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="asset_model">ASSET MODEL</label>
+                            <input type="text" name="asset_model" required class="form-control" value="{{datas.AssetModel}}">
+                        </div>
+                        <div class="form-group">
+                          <label for="asset_number">ASSET SERIAL NUMBER</label>
+                          <input type="text" name="asset_number" required class="form-control" value="{{datas.AssetSerialNumber}}">
+                      </div>
+                        <div class="form-group">
+                            <label for="sap_number">SAP ASSET NUMBER</label>
+                            <input type="text" id="sap_number" name="sap_number" required class="form-control" value="{{datas.SapAssetNo}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="asset_owner">ASSET OWNER</label>
+                            <input type="text" id="asset_owner" name="asset_owner" required class="form-control" value="{{datas.AssetOwner}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="department">DEPARTMENT</label>
+                            <input type="text" id="department" name="department" required class="form-control" value="{{datas.Department}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="asset_location">ASSET LOCATION</label>
+                            <input type="text" id="asset_location" name="asset_location" required class="form-control" value="{{datas.AssetLocation}}">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

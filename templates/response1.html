@@ -1,0 +1,18 @@
+{% for row in datas %}
+<tr>
+  <td>{{ row.AssetType }}</td>
+  <td>{{ row.AllocationDate }}</td>
+  <td>{{ row.AllocationType }}</td>
+  <td>{{ row.ValidTill}}</td>
+  <td>
+    <a href='{{ url_for("edit", assetserialnumber=row.AssetSerialNumber) }}'>
+      <img src="{{ url_for('static', filename='images/edit.png') }}" alt="Edit" style="width:20px; height:20px;">
+    </a>
+  </td>
+  <td>
+    <a href='{{ url_for("delete", assetserialnumber=row.AssetSerialNumber) }}'  onclick='return confirm("Asset Details Will Delete Permanently")'>
+      <img src="{{ url_for('static', filename='images/delete.png') }}" alt="Delete" style="width:20px; height:20px;">
+    </a>
+  </td>
+</tr>
+{% endfor %}

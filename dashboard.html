@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> <!-- Ensure to include Bootstrap CSS if using Bootstrap classes -->
+</head>
+<body>
+    <form id="loginForm">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+        <div id="errorMessage" class="d-none text-danger"></div>
+    </form>
+
+    <a href="{{ url_for('add') }}" class="btn btn-success">Add Accessories</a>
+
+    <!-- Render the URL for redirection into a JavaScript variable -->
+    <script>
+        const redirectUrl = "{{ url_for('view_all') }}";
+    </script>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const predefinedUsername = 'admin ceat';
+            const predefinedPasswords = ['admin@123', 'admin@456', 'admin@789'];
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (username === predefinedUsername && predefinedPasswords.includes(password)) {
+                alert('Login successful!');
+                // Redirect to another page or perform another action here
+                window.location.href = redirectUrl; // Use the rendered URL
+            } else {
+                errorMessage.classList.remove('d-none');
+                errorMessage.textContent = 'Invalid username or password.';
+            }
+        });
+    </script>
+</body>
+</html>

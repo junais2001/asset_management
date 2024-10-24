@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/edit1.css')}}">
+    <title>Register Employee Details</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title text-center">UPDATE ASSET DETAILS</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{{url_for('edit1', assetserialnumber=datas.AssetSerialNumber)}}" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="asset_type">ASSET TYPE</label>
+                            <input type="text" id="asset_type" name="asset_type" required class="form-control" value="{{datas.AssetType}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="allocationDate">ALLOCATION DATE</label>
+                            <input type="date" name="allocationDate" required class="form-control" value="{{datas.AllocationDate}}">
+                        </div>
+                        <div class="form-group">
+                          <label for="allocationType">ALLOCATION TYPE</label>
+                          <input type="text" name="allocationType" required class="form-control" value="{{datas.AllocationType}}">
+                      </div>
+                        <div class="form-group">
+                            <label for="validTill">EXPIRE DATE</label>
+                            <input type="date" id="validTill" name="validTill" required class="form-control" value="{{datas.ValidTill}}">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

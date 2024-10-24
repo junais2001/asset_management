@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index1</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Select Column and Value</h1>
+    <form id="filterForm">
+        <label for="column">Column:</label>
+        <select id="column" name="column">
+            <option value="">Select Column</option>
+            {% for column in columns %}
+                <option value="{{ column }}">{{ column }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="value">Value:</label>
+        <select id="value" name="value">
+            <option value="">Select Value</option>
+            <!-- Options will be populated dynamically based on selected column -->
+        </select>
+
+        <button type="submit">Filter</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('#column').change(function(){
+                var column = $(this).val();
+                if(column) {
+                    $.ajax({
+                        url: '/fetch_column_values',
+                        type: 'POST',
+                        data: { column: column },
+                        success: function(response){
+                            $('#value').html('<option value="">Select Value</option>');
+                            $.each(response.values, function(index, value){
+                                $('#value').append('<option value="'+value+'">'+value+'</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('#value').html('<option value="">Select Value</option>');
+                }
+            });
+
+            $('#filterForm').submit(function(e){
+                e.preventDefault();
+                var column = $('#column').val();
+                var value = $('#value').val();
+                if(column && value) {
+                    $.ajax({
+                        url: '/fetchrecords1',
+                        type: 'POST',
+                        data: { column: column, value: value },
+                        success: function(response){
+                            $('#results').html(response.htmlresponse);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

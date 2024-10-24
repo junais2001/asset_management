@@ -1,0 +1,84 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('https://longmarch.ae/wp-content/uploads/2019/08/expertise-3.jpg');
+    background-size: cover;
+    background-position: center;
+    animation: slideBackground 20s infinite alternate;
+    font-family: 'Poppins', sans-serif;
+}
+/* 
+@keyframes slideBackground {
+    0% {
+        background-image: url('https://longmarch.ae/wp-content/uploads/2019/08/expertise-3.jpg');
+    }
+    50% {
+        background-image: url('https://rpgcom.rpggroup.com/2020/july/images/cover-story-kma.jpg');
+    }
+    100% {
+        background-image: url('https://img.seithipunal.com/media/hthy-ep3je.jpg');
+     }
+    /* 75% { 
+        background-image: url('https://media.licdn.com/dms/image/C5122AQHrRcbF0bzulQ/feedshare-shrink_800/0/1581517988662?e=2147483647&v=beta&t=2Q5-Gh8-JCzYOtXb1FylrZZZCeUfR68A-D5luyXaBuY');
+    }
+    100% {
+        background-image: url('https://media.glassdoor.com/l/c8/05/54/2c/health-and-wellness-week.jpg');
+    }  
+} */
+
+.card {
+    width: 100%;
+    max-width: 600px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)); /* Updated background */
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 24px;
+    color: #fff; /* Changed text color to white */
+    text-shadow: 2px 2px 4px #000; /* Added shadow effect */
+    font-weight: bold; /* Added bold font weight */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff; /* Changed label color to white */
+}
+
+.form-group input {
+    width: calc(100% - 22px); /* Adjusted width */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.5); /* Added background color */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}

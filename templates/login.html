@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="login-form shadow">
+            <form id="loginForm" autocomplete="off">
+                <h3 class="text-center mb-4"><b>CEAT ADMIN</b></h3>
+                <div class="form-group">
+                    <input type="text" id="username" class="form-control" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary btn-block">
+                </div>
+                <div id="errorMessage" class="alert alert-danger d-none"></div>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+   <script>
+        const redirectUrl = "{{ url_for('view_all') }}";
+    </script>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const predefinedUsername = 'admin ceat';
+            const predefinedPasswords = ['admin@123', 'admin@456', 'admin@789'];
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (username === predefinedUsername && predefinedPasswords.includes(password)) {
+                alert('Login successful!');
+                // Redirect to another page or perform another action here
+                window.location.href = redirectUrl; // Use the rendered URL
+            } else {
+                errorMessage.classList.remove('d-none');
+                errorMessage.textContent = 'Invalid username or password.';
+            }
+        });
+    </script>
+</body>
+</html>

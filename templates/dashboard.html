@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Page</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/dashboard.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="button-group">
+            <a href="{{ url_for('view_all1') }}" class="action-button create-button">VIEW</a>
+            <a href="{{ url_for('login') }}" class="action-button update-button">UPDATE</a>
+            <a href="{{ url_for('login1') }}" class="action-button modify-button">REGISTER</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<table border="1">
+    <tr>
+        <th>AssetType</th>
+        <th>AssetMake</th>
+        <th>AssetModel</th>
+        <th>AssetSerialNumber</th>
+        <th>CeatAssetTag</th>
+        <th>SapAssetNumber</th>
+        <th>PoNumber</th>
+        <th>AssetState</th>
+        <th>EmployeeName</th>
+        <th>Department</th>
+        <th>EmployeeGrade</th>
+        <th>EmployeeCode</th>
+        <th>EmailId</th>
+        <th>ContactNumber</th>
+        <th>AllocationDate</th>
+        <th>AllocationType</th>
+        <th>ValidTill</th>
+        <th>AllocatedLocation</th>
+    </tr>
+    {% for data in datas %}
+    <tr>
+        <td>{{ data.AssetType }}</td>
+        <td>{{ data.AssetMake }}</td>
+        <td>{{ data.AssetModel }}</td>
+        <td>{{ data.AssetSerialNumber }}</td>
+        <td>{{ data.CeatAssetTag }}</td>
+        <td>{{ data.SapAssetNumber }}</td>
+        <td>{{ data.PoNumber }}</td>
+        <td>{{ data.AssetState }}</td>
+        <td>{{ data.EmployeeName }}</td>
+        <td>{{ data.Department }}</td>
+        <td>{{ data.EmployeeGrade }}</td>
+        <td>{{ data.EmployeeCode }}</td>
+        <td>{{ data.EmailId }}</td>
+        <td>{{ data.ContactNumber }}</td>
+        <td>{{ data.AllocationDate }}</td>
+        <td>{{ data.AllocationType }}</td>
+        <td>{{ data.ValidTill }}</td>
+        <td>{{ data.AllocatedLocation }}</td>
+    </tr>
+    {% endfor %}
+</table>
